@@ -1,0 +1,116 @@
+<h2 class="header-name">Resume</h2>
+<div class="line"></div>
+
+<div class="resume__education">
+    <div class="resume__education-head">
+        <div class="education__head-img">
+            <img src="assets/img/icon/book.svg" alt="">
+        </div>
+        <div class="education__head-text">
+            <h3>Education</h3>
+        </div>
+    </div>
+    <ul class="resume__education-list">
+        <li class="resume__education-item">
+            <div class="resume__education-link">
+                <h4>Колледж инновационных технологий имени Абылкаса Сагинова</h4>
+                <span>2021 - 2025</span>
+                <p>Колледж инновационных технологий открылся в 2016 году и является отдельной кафедрой КИТ в Карагандинском Техническом университете имени Абылкаса Сагинова.</p>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="resume__experience">
+    <div class="resume__experience-head">
+        <div class="experience__head-img">
+            <img src="assets/img/icon/book.svg" alt="">
+        </div>
+        <div class="experience__head-text">
+            <h3>Exprience</h3>
+        </div>
+    </div>
+    <ul class="resume__experience-list">
+        <li class="resume__experience-item">
+            <div class="resume__experience-link">
+                <h4>ТОО "МИКРО-ЛЮКС СЕРВИС"</h4>
+                <span>2023 - по сей день</span>
+                <p>"Микро-Люкс Сервис" - это компания основанная в 2009 году и работающая по сей день в Карагандинском Техническом Университете имени Абылкаса Сагинова.</p>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="resume__skills">
+    <div class="resume__skills-head">
+        <h3>My Skills</h3>
+    </div>
+    <ul class="resume__skills-list">
+        <li class="resume__skills-item">
+            <div class="resume__skills-head">
+                <h4>HTML5</h4>
+                <span class="resume__skills-procent">90%</span>
+            </div>
+            <div class="resume__skills-link">
+                <div class="resume__skills-line"></div>
+            </div>
+        </li>
+        <li class="resume__skills-item">
+            <div class="resume__skills-head">
+                <h4>CSS3</h4>
+                <span class="resume__skills-procent">90%</span>
+            </div>
+            <div class="resume__skills-link">
+                <div class="resume__skills-line"></div>
+            </div>
+        </li>
+        <li class="resume__skills-item">
+            <div class="resume__skills-head">
+                <h4>SASS</h4>
+                <span class="resume__skills-procent">80%</span>
+            </div>
+            <div class="resume__skills-link">
+                <div class="resume__skills-line"></div>
+            </div>
+        </li>
+        <li class="resume__skills-item">
+            <div class="resume__skills-head">
+                <h4>JavaScript</h4>
+                <span class="resume__skills-procent">60%</span>
+            </div>
+            <div class="resume__skills-link">
+                <div class="resume__skills-line"></div>
+            </div>
+        </li>
+        <li class="resume__skills-item">
+            <div class="resume__skills-head">
+                <h4>Node JS</h4>
+                <span class="resume__skills-procent">80%</span>
+            </div>
+            <div class="resume__skills-link">
+                <div class="resume__skills-line"></div>
+            </div>
+        </li>
+        <li class="resume__skills-item">
+            <div class="resume__skills-head">
+                <h4>PHP</h4>
+                <span class="resume__skills-procent">30%</span>
+            </div>
+            <div class="resume__skills-link">
+                <div class="resume__skills-line"></div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<script>
+    function mySkill() {
+    const skillProcents = document.querySelectorAll('.resume__skills-procent') 
+    const skillLines = document.querySelectorAll('.resume__skills-line')
+
+    skillProcents.forEach((event, index) => {
+        skillLines[index].style.width = event.textContent;
+    })
+}
+mySkill()
+</script>

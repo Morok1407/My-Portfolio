@@ -1,0 +1,13 @@
+{
+  "name": "my-portfolio",
+  "version": "1.0.0",
+  "description": "My web portfolio for work",
+  "main": "app.js",
+  "author": "Bugaev Daniel",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mysql2": "^3.11.4"
+  }
+}
