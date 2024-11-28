@@ -21,3 +21,21 @@ function loadHost() {
     });
 }
 loadHost();
+
+function mysql(){
+    const connect = mysql2.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'root',
+        database: 'my_portfolio'
+    })
+
+    connect.connect((err) => {
+        if (err) {
+            console.log(`Ошибка подключения к базе данных: ${err}`)
+            return;
+        }
+        console.log('База данных подключена')
+    })
+}
+mysql()
