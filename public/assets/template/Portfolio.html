@@ -1,14 +1,46 @@
 <h2 class="header-name">Portfolio</h2>
 <div class="line"></div>
 
-<div class="portfolio__proects">
-    <ul class="portfolio__proects-list">
-            <li class="portfolio__proects-item">
-                <a href="#" class="portfolio__proects-img"><img src="" alt=""></a>
-                <h3></h3>
-                <div class="portfolio__proects-eye">
-                    <img src="" alt="eye">
-                </div>
-            </li>
+<div class="portfolio__projects">
+    <ul class="portfolio__projects-list">
     </ul>
 </div>
+
+<script>
+    const projectsList = document.querySelector('.portfolio__projects-list')
+
+    fetch('http://localhost:3000/api/my_projects')
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(my_project => {
+            const projectItem = document.createElement('li');
+            projectItem.classList.add('portfolio__projects-item');
+            projectItem.setAttribute('data-project-id', my_project.id)
+            projectsList.appendChild(projectItem);
+
+            const projectsImgBox = document.createElement('a');
+            projectsImgBox.classList.add('portfolio__projects-img');
+            projectItem.appendChild(projectsImgBox)
+
+            const projectsImg = document.createElement('img')
+            projectsImg.src = my_project.img;
+            projectsImg.alt = my_project.name
+            projectsImgBox.appendChild(projectsImg)
+
+            const projectsName = document.createElement('h3')
+            projectsName.classList.add('portfolio__projects-name')
+            projectsName.textContent = my_project.name
+            projectItem.appendChild(projectsName)
+
+            const projectEye = document.createElement('div')
+            projectEye.classList.add('portfolio__projects-eye')
+            projectItem.appendChild(projectEye)
+
+            const projectEyeImg = document.createElement('img')
+            projectEyeImg.src = './assets/img/icon/eye.svg'
+            projectEyeImg.alt = 'eye'
+            projectEye.appendChild(projectEyeImg)
+        });
+    })
+    .catch(error => console.error('Ошибка:', error));
+</script>

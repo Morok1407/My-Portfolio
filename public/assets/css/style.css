@@ -849,30 +849,31 @@ html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
 
 /* ============================== PORTFOLIO ============================== */
 /* ============================== PORTFOLIO ============================== */
-.portfolio__proects-list {
+.portfolio__projects-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
 
-.portfolio__proects-item {
+.portfolio__projects-item {
+  position: relative;
   animation: scaleUp 0.25s ease forwards;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-.portfolio__proects-item h3 {
+.portfolio__projects-item h3 {
   margin-left: 10px;
   font-size: 21px;
   font-weight: 400;
 }
 
-.portfolio__proects-img {
+.portfolio__projects-img {
   position: relative;
   border-radius: 16px;
   z-index: 0;
 }
-.portfolio__proects-img img {
+.portfolio__projects-img img {
   position: relative;
   height: 100%;
   width: 100%;
@@ -880,7 +881,7 @@ html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
   z-index: 0;
   object-fit: cover;
 }
-.portfolio__proects-img::before {
+.portfolio__projects-img::before {
   content: "";
   position: absolute;
   top: 0;
@@ -893,20 +894,20 @@ html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
   transition: all 0.3s;
 }
 
-.portfolio__proects-img:hover::before {
+.portfolio__projects-img:hover::before {
   background: hsla(0, 0%, 0%, 0.5);
 }
 
-.portfolio__proects-eye {
+.portfolio__projects-eye {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%, -100%);
   z-index: 10;
 }
-.portfolio__proects-eye img {
-  width: 32px;
-  height: 32px;
+.portfolio__projects-eye img {
+  width: 42px;
+  height: auto;
 }
 
 /* ============================== MEDIA ============================== */

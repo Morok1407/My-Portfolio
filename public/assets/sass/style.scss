@@ -909,14 +909,15 @@ html, body {
 /* ============================== PORTFOLIO ============================== */
 /* ============================== PORTFOLIO ============================== */
 
-.portfolio__proects {
+.portfolio__projects {
 }
-.portfolio__proects-list {
+.portfolio__projects-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
-.portfolio__proects-item {
+.portfolio__projects-item {
+    position: relative;
     animation: scaleUp 0.25s ease forwards;
     display: flex;
     flex-direction: column;
@@ -928,7 +929,7 @@ html, body {
         font-weight: 400;
     }
 }
-.portfolio__proects-img {
+.portfolio__projects-img {
     position: relative;
     border-radius: 16px;
     z-index: 0;
@@ -955,19 +956,19 @@ html, body {
         transition: all .3s;
     }
 }
-.portfolio__proects-img:hover{
+.portfolio__projects-img:hover{
     &::before { background: hsla(0, 0%, 0%, 0.5); }
 }
-.portfolio__proects-eye {
+.portfolio__projects-eye {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%);
+    transform: translate(-50%, -100%);
     z-index: 10;
 
     img {
-        width: 32px;
-        height: 32px;
+        width: 42px;
+        height: auto;
     }
 }
 

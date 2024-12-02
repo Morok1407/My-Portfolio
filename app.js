@@ -3,9 +3,10 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import mysql2 from "mysql2";
 
+const app = express();
+const PORT = 3000;
+
 function loadHost() {
-    const app = express();
-    const PORT = 3000;
 
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);
@@ -22,20 +23,29 @@ function loadHost() {
 }
 loadHost();
 
-function mysql(){
-    const connect = mysql2.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: 'root',
-        database: 'my_portfolio'
-    })
+const db = mysql2.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'root',
+    database: 'my_portfolio'
+})
 
-    connect.connect((err) => {
-        if (err) {
-            console.log(`Ошибка подключения к базе данных: ${err}`)
+db.connect((err) => {
+    if (err) {
+        console.log(`Ошибка подключения к базе данных: ${err}`)
+        return;
+    }
+    console.log('База данных подключена')
+})
+
+app.get('/api/my_projects', (req, res) => {
+    const sql = 'SELECT * FROM my_projects';
+    db.query(sql, (err, result) => {
+        if(err) {
+            concole.error(err);
+            res.staus(500).json({error: 'Ошибка получения данных'});
             return;
         }
-        console.log('База данных подключена')
+        res.json(result)
     })
-}
-mysql()
+})
