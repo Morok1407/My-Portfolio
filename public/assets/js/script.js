@@ -117,7 +117,7 @@ function moveButton() {
             navBarPhone.classList.remove('animation')
         }, 600)
 
-        loadHTML();
+        loadPage('About');
 
         const navbarLinks = document.querySelectorAll('.navbar-link');
         const navOne = document.getElementById('nav-one')
