@@ -3,36 +3,35 @@
 
 <div class="project-inner">
     <img src="" alt="" class="project-img">
-    <h3 class="project-name"></h3>
     <p class="project-readme"></p>
 </div>
 
 <script>
-    var headerName = document.querySelector('.header-name')
-    headerName.innerText = window.projectName
-
-    var thisProjectImg = document.querySelector('.project-img')
-    thisProjectImg.src = window.projectImg
-    thisProjectImg.alt = window.projectName
-
-    var thisProjectName = document.querySelector('.project-name')
-    thisProjectName.textContent = window.projectName
-
-    var readmeUrl = `https://api.github.com/repos/Morok1407/${window.projectName}/contents/README.md?plain=1`
-    var thisProjectReadme = document.querySelector('.project-readme')
+    function loadProject(){
+        const headerName = document.querySelector('.header-name')
+        headerName.innerText = window.projectName
     
-    fetch(readmeUrl)
-    .then(response => response.json())
-    .then(data => {
-        if(data.content) {
-                const decodedContent = decodeURIComponent(escape(window.atob(data.content)));
-                thisProjectReadme.textContent = decodedContent; 
-            }else {
-                thisProjectReadme.textContent = "Не удалось получить содержимое README.";
-            }
-        })
+        const thisProjectImg = document.querySelector('.project-img')
+        thisProjectImg.src = window.projectImg
+        thisProjectImg.alt = window.projectName
+
+        const readmeUrl = `https://api.github.com/repos/Morok1407/${window.projectName}/contents/README.md?plain=1`
+        const thisProjectReadme = document.querySelector('.project-readme')
+    
+        fetch(readmeUrl)
+        .then(response => response.json())
+        .then(data => {
+            if(data.content) {
+                    const decodedContent = decodeURIComponent(escape(window.atob(data.content)));
+                    thisProjectReadme.textContent = decodedContent; 
+                }else {
+                    thisProjectReadme.textContent = "Не удалось получить содержимое README.";
+                }
+            })
         .catch(error => {
             console.error("Ошибка при загрузке README:", error);
             document.getElementById('readmeContent').textContent = "Ошибка при загрузке README.";
         });
+    }
+    loadProject()
 </script>

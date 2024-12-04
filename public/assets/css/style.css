@@ -940,7 +940,8 @@ html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
 .project-inner {
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: center;
+  text-align: center;
   gap: 32px;
 }
 
@@ -949,9 +950,10 @@ html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
   border-radius: 24px;
 }
 
-.project-name {
-  text-align: left;
-  font-size: 32px;
+.project-readme {
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 300;
+  line-height: 1.6;
 }
 
 /* ============================== MEDIA ============================== */

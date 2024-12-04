@@ -2,12 +2,12 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import mysql2 from "mysql2";
+import 'dotenv/config';
 
 const app = express();
 const PORT = 3000;
 
 function loadHost() {
-
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);
     
@@ -24,10 +24,10 @@ function loadHost() {
 loadHost();
 
 const db = mysql2.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'my_portfolio'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
 })
 
 db.connect((err) => {
