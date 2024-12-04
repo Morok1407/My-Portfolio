@@ -4,6 +4,10 @@
 <div class="project-inner">
     <img src="" alt="" class="project-img">
     <p class="project-readme"></p>
+    <a href="#" class="project-github">
+        <img src="../../assets/img/icon/github.png" alt="GitHub">
+        <p>Ссылка на репозиторий Git</p>
+    </a>
 </div>
 
 <script>
@@ -12,8 +16,11 @@
         headerName.innerText = window.projectName
     
         const thisProjectImg = document.querySelector('.project-img')
-        thisProjectImg.src = window.projectImg
+        thisProjectImg.src = `./assets/img/Projects/${window.projectName}.png`
         thisProjectImg.alt = window.projectName
+
+        const thisProjectGithub = document.querySelector('.project-github')
+        thisProjectGithub.href = `https://github.com/Morok1407/${window.projectName}`
 
         const readmeUrl = `https://api.github.com/repos/Morok1407/${window.projectName}/contents/README.md?plain=1`
         const thisProjectReadme = document.querySelector('.project-readme')

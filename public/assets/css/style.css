@@ -956,6 +956,21 @@ html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
   line-height: 1.6;
 }
 
+.project-github {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.project-github img {
+  width: 60px;
+}
+.project-github p {
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
 /* ============================== MEDIA ============================== */
 /* ============================== MEDIA ============================== */
 @media (max-width: 1070px) {
