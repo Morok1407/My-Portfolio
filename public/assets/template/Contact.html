@@ -1,2 +1,32 @@
 <h2 class="header-name">Contact</h2>
 <div class="line"></div>
+
+<div class="contact--inner">
+    <figure class="contact__map">
+        <iframe class="contact__map-iframe" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d20594.26162790816!2d73.1030549!3d49.8183516!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2skz!4v1733417242587!5m2!1sru!2skz" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </figure>
+    <form action="tg-form" class="contact__form">
+        <div class="contact__form-head">
+            <h3>Contact Form</h3>
+        </div>
+        <div class="contact__form-inputs">
+            <input type="text" name="fullname" placeholder="Full name" required data-form-input>
+
+            <input type="email" name="email" placeholder="Email address" required data-form-input>
+        </div>
+        <textarea name="message" class="contact__form-textarea" placeholder="Your Message" required data-form-input></textarea>
+        <div class="contact__form-button">
+            <button type="submit" id="form-submit">
+                <img src="../../assets/img/icon/send.svg" alt="Send">
+                Send Message
+            </button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function sendMessadg() {
+        const btnSubmit = document.getElementById('form-submit')
+    }
+    sendMessadg()
+</script>
