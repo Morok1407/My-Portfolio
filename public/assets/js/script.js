@@ -149,3 +149,26 @@ function moveButton() {
     })
 }
 moveButton()
+
+function changeAvatar() {
+    const avatart = document.querySelector('.MyDatat__avatar-img')
+
+    const avatars = [
+        'assets/img/Avatar/sticker-1.webp',
+        'assets/img/Avatar/sticker-2.webp',
+        'assets/img/Avatar/sticker-3.webp',
+    ]
+
+    let currentIndex = 0;
+
+    setInterval(() => {
+        avatart.classList.add('MyDatat__avatar-img--change')
+        
+        setTimeout(() => {
+            currentIndex = (currentIndex + 1) % avatars.length;
+            avatart.src = avatars[currentIndex];
+            avatart.classList.remove('MyDatat__avatar-img--change')
+        }, 200)
+    }, 3000)
+}
+changeAvatar()
