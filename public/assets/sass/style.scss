@@ -1093,7 +1093,7 @@ html, body {
     border-radius: 24px;
 }
 .project-readme {
-    font-size: clamp(16px, 2vw, 20px);
+    font-size: clamp(14px, 3.2vw, 20px);
     font-weight: 300;
     line-height: 1.6;
 }
@@ -1104,11 +1104,11 @@ html, body {
     gap: 16px;
 
     img {
-        width: 60px;
+        width: clamp(42px, 10vw, 60px);
     }
 
     p {
-        font-size: clamp(16px, 2vw, 20px);
+        font-size: clamp(14px, 3.2vw, 20px);
         font-weight: 300;
         line-height: 1.6;
     }
@@ -1124,7 +1124,7 @@ html, body {
 .contact__map {
     border-radius: 17px;
     margin-bottom: 30px;
-    height: 360px;
+    height: clamp(220px, 38vw, 360px);
 }
 .contact__map-iframe {
     border: 1px solid white;
@@ -1146,8 +1146,7 @@ html, body {
 .contact__form-inputs {
     gap: 25px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     margin-bottom: 30px;
         input {
             color: hsl(0, 0%, 98%);
@@ -1180,7 +1179,7 @@ html, body {
     padding: 14px 20px;
     outline: none;
     margin-bottom: 30px;
-
+    
     &:focus {
         border-color: hsl(45, 100%, 72%);
     }
@@ -1200,7 +1199,7 @@ html, body {
         font-weight: 500;
         color: hsl(45, 100%, 72%);
         background: $gradient-item-before;
-
+        
         img {
             width: 32px;
             height: auto;
@@ -1233,6 +1232,12 @@ html, body {
     }
     .portfolio__projects-list {
         grid-template-columns: repeat(2, 1fr)
+    }
+}
+
+@media (max-width: 850px) {
+    .contact__form-inputs {
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 
@@ -1393,6 +1398,42 @@ html, body {
 
     .portfolio__projects-list {
         grid-template-columns: repeat(2, 1fr)
+    }
+
+    .portfolio__projects-item h3 {
+        font-size: clamp(20px, 3.4vw, 24px);
+    }
+
+    .contact__form-textarea{
+        height: clamp(120px, 30vw, 200px);
+        font-size: clamp(14px, 3.5vw, 18px);
+    }
+
+    .contact__form-inputs input {
+        font-size: clamp(14px, 3.5vw, 18px);
+    }
+    
+    .contact__form-button button {
+        font-size: clamp(14px, 3.5vw, 18px);
+        gap: clamp(12px, 3vw, 16px);
+    }
+    .contact__form-button button img {
+        width: clamp(26px, 4.7vw, 32px);
+    }
+}
+
+@media (max-width: 700px) {
+    .about__modal {
+        padding: 0 60px;
+    }
+    .modal__head-text h2 {
+        font-size: clamp(18px, 4.2vw, 26px);
+    }
+    .modal__head-text span {
+        font-size: clamp(14px, 4.2vw, 16px);
+    }
+    .modal__body-text p {
+        font-size: clamp(14px, 4.2vw, 16px);
     }
 }
 
