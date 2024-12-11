@@ -9,6 +9,7 @@
   "dependencies": {
     "dotenv": "^16.4.7",
     "express": "^4.21.1",
+    "grammy": "^1.33.0",
     "mysql2": "^3.11.4"
   }
 }

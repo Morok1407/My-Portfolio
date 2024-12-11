@@ -334,6 +334,7 @@ html, body {
     padding: 32px 24px;
     position: relative;
     width: clamp(500px, 68.5vw, 868px);
+    overflow: hidden;
 }
 .navbar {
     position: absolute;
@@ -1118,6 +1119,7 @@ html, body {
 /* ============================== CONTACT ============================== */
 
 .contact--inner {
+    position: relative;
     display: flex;
     flex-direction: column;
 }
@@ -1147,6 +1149,7 @@ html, body {
     gap: 25px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    // grid-template-rows: repeat(1, auto);
     margin-bottom: 30px;
         input {
             color: hsl(0, 0%, 98%);
@@ -1179,6 +1182,7 @@ html, body {
     padding: 14px 20px;
     outline: none;
     margin-bottom: 30px;
+    grid-column: span 2;
     
     &:focus {
         border-color: hsl(45, 100%, 72%);
@@ -1205,7 +1209,52 @@ html, body {
             height: auto;
         }
     }
+}
 
+.message-send {
+    position: absolute;
+    z-index: 10;
+    bottom: 120px;
+    right: 0;
+    background: $gradient-item-before;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease-in-out;
+    transform: translateX(450px);
+    
+    p {
+        padding: 16px 20px;
+        color: hsl(45, 100%, 72%);
+        font-size: clamp(14px, 3.5vw, 18px);
+        font-weight: 500;
+        cursor: default;
+    }
+    
+    span {
+        position: absolute;
+        bottom: 4px;
+        left: 4px;
+        border-bottom-left-radius: 14px;
+        border-bottom-right-radius: 14px;
+        height: 3px;
+        background: $gold-gradient;
+    }
+}
+
+.message-send--active {
+    transform: translateX(0px);
+    transition: all .3s ease-in-out;
+    
+    span {
+        animation: percent 3s ease-in-out 1 forwards;
+    }
+}
+
+@keyframes percent {
+    0% {width: 97%;}
+    100% {width: 0%;}
 }
 
 /* ============================== MEDIA ============================== */
@@ -1419,6 +1468,9 @@ html, body {
     }
     .contact__form-button button img {
         width: clamp(26px, 4.7vw, 32px);
+    }
+    .contact__form-textarea {
+        grid-column: auto;
     }
 }
 

@@ -5,16 +5,17 @@
     <figure class="contact__map">
         <iframe class="contact__map-iframe" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d20594.26162790816!2d73.1030549!3d49.8183516!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2skz!4v1733417242587!5m2!1sru!2skz" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </figure>
-    <form action="tg-form" class="contact__form">
+    <form action="" id="contactForm" class="contact__form">
         <div class="contact__form-head">
             <h3>Contact Form</h3>
         </div>
         <div class="contact__form-inputs">
-            <input type="text" name="fullname" placeholder="Full name" required data-form-input>
+            <input id="input-name" type="text" name="fullname" placeholder="Full name" required data-form-input>
 
-            <input type="email" name="email" placeholder="Email address" required data-form-input>
+            <input id="input-email" type="email" name="email" placeholder="Email address" required data-form-input>
+
+            <textarea id="input-text" type="text" name="message" class="contact__form-textarea" placeholder="Your Message" required data-form-input></textarea>
         </div>
-        <textarea name="message" class="contact__form-textarea" placeholder="Your Message" required data-form-input></textarea>
         <div class="contact__form-button">
             <button type="submit" id="form-submit">
                 <img src="../../assets/img/icon/send.svg" alt="Send">
@@ -22,11 +23,62 @@
             </button>
         </div>
     </form>
+
+    <div class="message-send">
+        <p>Сообщение успешно отправленно!!!</p>
+        <span></span>
+    </div>
 </div>
 
 <script>
     function sendMessadg() {
+        const contactForm = document.getElementById('contactForm')
+        const inputName = document.getElementById('input-name')
+        const inputEmail = document.getElementById('input-email')
+        const inputText = document.getElementById('input-text')
         const btnSubmit = document.getElementById('form-submit')
+
+        const successMessage = document.querySelector('.message-send')
+        
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const dataMessage = {
+                name: inputName.value.trim(),
+                email: inputEmail.value.trim(),
+                text: inputText.value.trim()
+            }
+            
+            successMessage.classList.add('message-send--active')
+
+            setTimeout(() => {
+                inputName.value = ''
+                inputEmail.value = ''
+                inputText.value = ''
+            })
+            let messageTime = setTimeout(() => {
+                successMessage.classList.remove('message-send--active')
+            }, 3000)
+
+            try {
+                const response = await fetch('http://localhost:3000/api/messageData', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(dataMessage)
+                })
+
+                if(!response.ok) {
+                    throw new Error(`Ошибка: ${response.status}`)
+                }
+
+                const result = await response.json()
+                console.log(`Ответ от сервера: ${JSON.stringify(result, null, 2)}`)
+            } catch (error){
+                console.error(`Ошибка при отправке: ${error}`)
+            }
+        });
     }
     sendMessadg()
 </script>
