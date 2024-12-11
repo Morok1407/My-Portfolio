@@ -1123,7 +1123,6 @@ html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
   border-radius: 14px;
   padding: 14px 20px;
   outline: none;
-  margin-bottom: 30px;
   grid-column: span 2;
 }
 .contact__form-textarea:focus {
@@ -1148,6 +1147,21 @@ html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
 .contact__form-button button img {
   width: 32px;
   height: auto;
+}
+
+.warning {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+.warning p {
+  max-width: 400px;
+  font-size: clamp(14px, 3.5vw, 18px);
+  font-weight: 200;
+  line-height: 1.4;
 }
 
 .message-send {
