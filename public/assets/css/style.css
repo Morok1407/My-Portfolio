@@ -1188,6 +1188,44 @@ html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
   animation: percent 3s ease-in-out 1 forwards;
 }
 
+.message-error {
+  position: absolute;
+  z-index: 10;
+  bottom: 120px;
+  right: 0;
+  background: linear-gradient(to bottom right, hsla(240, 1%, 18%, 0.251) 0%, hsla(240, 2%, 11%, 0) 100%), hsl(240, 2%, 13%);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(450px);
+}
+.message-error p {
+  padding: 16px 20px;
+  color: hsl(45, 100%, 72%);
+  font-size: clamp(14px, 3.5vw, 18px);
+  font-weight: 500;
+  cursor: default;
+}
+.message-error span {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  height: 3px;
+  background: linear-gradient(to right, hsl(45, 100%, 72%), hsl(35, 100%, 68%));
+}
+
+.message-error--active {
+  transform: translateX(0px);
+  transition: all 0.3s ease-in-out;
+}
+.message-error--active span {
+  animation: percent 3s ease-in-out 1 forwards;
+}
+
 @keyframes percent {
   0% {
     width: 97%;
