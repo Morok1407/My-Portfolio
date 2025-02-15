@@ -68,7 +68,7 @@
                 successMessage.classList.remove('message-send--active')
             }, 3000)
 
-            fetch('http://localhost:3000/api/messageData', {
+            fetch('/api/messageData', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

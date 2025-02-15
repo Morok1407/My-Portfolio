@@ -2,13 +2,17 @@
 <div class="line"></div>
 
 <div class="portfolio__projects">
+    <div class="warning-inner" id="warning-inner" style="display: none;">
+        <p class="warning-text" id="warning-text">
+        </p>
+    </div>
     <ul class="portfolio__projects-list" id="portfolio__projects-list">
     </ul>
 </div>
 
 <script>
     setTimeout(() => {
-        fetch('http://localhost:3000/api/my_projects')
+        fetch('/api/my_projects')
         .then(response => response.json())
         .then(data => {
             data.forEach(my_project => {
@@ -37,7 +41,7 @@
                 })
 
                 const projectsImg = document.createElement('img')
-                projectsImg.src = my_project.img;
+                projectsImg.src = `/assets/img/Projects/${my_project.name}.jpg`;
                 projectsImg.alt = my_project.name
                 projectsImgBox.appendChild(projectsImg)
 
@@ -51,12 +55,18 @@
                 projectsImgBox.appendChild(projectEye)
 
                 const projectEyeImg = document.createElement('img')
-                projectEyeImg.src = './assets/img/icon/eye.svg'
+                projectEyeImg.src = '/assets/img/icon/eye.svg'
                 projectEyeImg.alt = 'eye'
                 projectEye.appendChild(projectEyeImg)
 
             });
         })
-        .catch(error => console.error('Ошибка:', error));
+        .catch(error => {
+            console.error('Ошибка:', error)
+            const warningInner = document.getElementById('warning-inner')
+            const warningtext = document.getElementById('warning-text')
+            warningtext.textContent = `Ошибка на сервере: ${error}`
+            warningInner.style.display = 'flex'
+        });
     }, 150)
 </script>

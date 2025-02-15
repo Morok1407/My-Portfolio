@@ -8,7 +8,7 @@ import { Bot } from 'grammy'
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-const PORT = 3000;
+const PORT = process.env.PORT;
 
 function loadHost() {
     const __filename = fileURLToPath(import.meta.url);
@@ -26,19 +26,23 @@ function loadHost() {
 }
 loadHost();
 
-const db = mysql2.createConnection({
+const db = mysql2.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
+    waitForConnections: true,
+    connectionLimit: 100, 
+    queueLimit: 0
 })
 
-db.connect((err) => {
+db.getConnection((err, connection) => {
     if (err) {
         console.log(`Ошибка подключения к базе данных: ${err}`)
         return;
     }
     console.log('База данных подключена')
+    connection.release()
 })
 
 app.get('/api/my_projects', (req, res) => {

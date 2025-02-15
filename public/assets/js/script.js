@@ -73,7 +73,7 @@ function navBar(){
 navBar();
 
 function myAge(){
-    const data = new Date('2024-09-16')
+    const data = new Date()
     const myYears = document.getElementById('my-years')
     const myBirthday = new Date('2005-06-14');
 
@@ -167,7 +167,9 @@ function changeAvatar() {
         setTimeout(() => {
             currentIndex = (currentIndex + 1) % avatars.length;
             avatart.src = avatars[currentIndex];
-            avatart.classList.remove('MyDatat__avatar-img--change')
+            setTimeout(() => {
+                avatart.classList.remove('MyDatat__avatar-img--change')
+            }, 200)
         }, 200)
     }, 3000)
 }
